@@ -11,7 +11,7 @@ $animals=[
         ],
     'Australia'=>['Macropus'],
     'South-America'=>['Eunectes murinus'],
-    'North-America'=>['Ursus arctos x maritimus'],
+    'Canada'=>['Ursus arctos x maritimus'],
     'Antarctica'=>['Spheniscidae'],
 ];
 
@@ -24,30 +24,19 @@ echo "<pre>";
 print_r($result);
 echo "</pre>";
 
+$string = implode(', ', $result);
+echo "$string";
 
-$firstwords = [];
-$secondwords = [];
 
-foreach ($result as $value) {
-	$afs=explode(' ', $value);
-	$firstwords[]= $afs[0];
-	$secondwords[] = $afs[1];
-	shuffle($secondwords);
-}
-
-print_r($firstwords);
-print_r($secondwords);
-
-foreach ($firstwords as $i => $value) {
-	$firstwords[$i]=$firstwords[$i] . ' ' . $secondwords[$i];
-}
-
+/*shuffle($result);
 echo "<pre>";
-print_r($firstwords);
-echo "</pre>";
+print_r($result);
+echo "</pre>";*/
+/*print_r ($result);*/
 
-
-
-
+/*foreach ($animals as $continient => $zoo )
+{
+echo "$continient";
+}*/
 
 ?>
