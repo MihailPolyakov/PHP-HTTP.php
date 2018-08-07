@@ -4,12 +4,12 @@
 			$test = 0;
 			$int =0;
 			$fl=0;
-			$files='C:/xampp/htdocs/example/exams';
+			$files= $_SERVER['DOCUMENT_ROOT'] . '/example/exams';
 			$arrayfiles=scandir($files, 1);
 			if (array_key_exists($_GET['number'], $arrayfiles) == true) {
 				$int = $_GET['number'];
 				if ($arrayfiles[$int]=='.' || $arrayfiles[$int]== '..'){
-					echo 'такого номера не существует';
+					http_response_code(404);
 				} else {
 					$fl=$arrayfiles[$int];
 					$test = file_get_contents("exams/$fl");
