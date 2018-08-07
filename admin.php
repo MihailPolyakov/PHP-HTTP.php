@@ -12,7 +12,7 @@
 </form>
 
 <?php if (!empty($_FILES)) {
-		$files='C:/xampp/htdocs/example/exams';
+		$files=$_SERVER['DOCUMENT_ROOT'] . '/example/exams';
 		$arrayfiles=scandir($files);
 		foreach ($arrayfiles as $value) {
 			if ($value == $_FILES['tests'] ['name'] ['0']) {
@@ -20,11 +20,12 @@
 			}else{
 				$newfl = 'exams/' . $_FILES['tests'] ['name'] ['0'];
 				move_uploaded_file($_FILES['tests'] ['tmp_name'] ['0'], $newfl);
-				header('Location:http://localhost/example/list.php');
+				header('Location:/example/list.php');
+				exit;
 			}	
 		}	
 } else{
-	echo 'К сожалению файлы не загружены, повторите загрузку';
+	http_response_code(404);
 }?>
 </body>
 </html>
