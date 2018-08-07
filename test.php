@@ -71,10 +71,10 @@
 	$image=imagecreatetruecolor(300, 150);
 	$textfront=imagecolorallocate($image, 100, 100, 100);
 	$background=imagecolorallocate($image, 150, 150, 150);
-	/*$imagefront=imagecreatefromjpeg(__DIR__ . '/image.jpg');*/
+	$imagefront=imagecreatefromjpeg(__DIR__ . '/image.jpg');
 	$inimage=imagefill($image, 0, 0, $background);
-	/*imagecopy($image, $imagefront, 0, 0, 0, 0, 200, 120);*/
-	$fontfile=__DIR__ . '/12073.ttf';
+	imagecopy($image, $imagefront, 0, 0, 0, 0, 200, 120);
+	$fontfile=__DIR__ . '/12136.ttf';
 	imagettftext($image, 16, 0, 10, 10, $textfront, $fontfile, $text);
 
 	header('Content-Type: image/png');
