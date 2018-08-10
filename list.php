@@ -7,10 +7,11 @@
 <?php
 $files=$_SERVER['DOCUMENT_ROOT'] . '/example/exams';
 $arrayfiles=scandir($files); ?>
+	
 <ol>
 <?php foreach ($arrayfiles as $value) {
 	if ($value == '.' || $value == '..'){
-		continue;
+            continue;
 	}?>
 	<li><?php echo $value?>;</li>
 <?php } ?>
