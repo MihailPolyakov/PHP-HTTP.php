@@ -1,5 +1,5 @@
 <?php	if (!empty($_GET)) {
-			$array=0;
+		    $array=0;
 			$newarray=[];
 			$test = 0;
 			$int =0;
