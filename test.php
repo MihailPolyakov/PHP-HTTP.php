@@ -10,6 +10,7 @@
 				$int = $_GET['number'];
 				if ($arrayfiles[$int]=='.' || $arrayfiles[$int]== '..'){
 					http_response_code(404);
+					exit
 				} else {
 					$fl=$arrayfiles[$int];
 					$test = file_get_contents("exams/$fl");
@@ -25,28 +26,30 @@
 				        	?>
 				          <fieldset>
 				            <legend> <?php echo $key ?></legend>
-				            <?php foreach ($value as $asks) {
+				            <?php
+							foreach ($value as $asks) {
 				            	if (is_array($asks)){		
-					            		foreach ($asks as $value) {	
-					            			++$i;?>			            						 
+					            	foreach ($asks as $value) {	
+					            		++$i;?>			            						 
 				            <label><input type="radio" name="q<?php echo $qcount?>" value = "<?php echo $i?>"> <?php echo $value ?></label>
 
-				            <?php  }
+				              <?php }
 				            	 } elseif (!is_array($asks)) {
 					            	 $newarray[]=$asks;
 				            	 }
 				            	 
-				            	}?>	  
+				             }?>	  
 				          </fieldset> 
-				        <?php }
+				   <?php }
 				    	    
-			    		}?>
+			      }?>
 			    		<div><input type="text" name="name" placeholder="Введите свое имя"></div>
 			          <input type="submit" value="Отправить">  
 			      	</form>
 				
 	   <?php } else {
 				http_response_code(404);
+				exit;
 			}
 		};
 	
