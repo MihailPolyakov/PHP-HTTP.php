@@ -12,22 +12,20 @@
 </form>
 
 <?php if (!empty($_FILES)) {
-	$files=$_SERVER['DOCUMENT_ROOT'] . '/example/exams';
-	$arrayfiles=scandir($files);
-	foreach ($arrayfiles as $value) {
-	  if ($value == $_FILES['tests'] ['name'] ['0']) {
-	      echo "Такое имя уже существует";
-	  }else{
-	       $newfl = 'exams/' . $_FILES['tests'] ['name'] ['0'];
-	       move_uploaded_file($_FILES['tests'] ['tmp_name'] ['0'], $newfl);
-	       header('Location:/example/list.php');
-	       exit;
-	  }	
-	}	
-      } else{
-	    http_response_code(404);
+    $files=$_SERVER['DOCUMENT_ROOT'] . '/user_data/mpolyakov/PHP-HTTP/exams';
+    $arrayfiles=scandir($files);
+    foreach ($arrayfiles as $value) {
+        if ($value == $_FILES['tests'] ['name'] ['0']) {
+	    echo "Такое имя уже существует";
+        }else{
+	    $newfl = 'exams/' . $_FILES['tests'] ['name'] ['0'];
+	    move_uploaded_file($_FILES['tests'] ['tmp_name'] ['0'], $newfl);
+	    header('Location:/PHP-HTTP/list.php');
 	    exit;
-      }	
+        }	
+    }	
+} else{
+	http_response_code(404);
 }?>
 </body>
 </html>
