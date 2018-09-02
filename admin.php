@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
+	<title>Admin</title>https://github.com/MihailPolyakov/PHP-HTTP.php
 </head>
 <body>
 	
@@ -20,7 +20,7 @@
         }else{
 	    $newfl = 'exams/' . $_FILES['tests'] ['name'] ['0'];
 	    move_uploaded_file($_FILES['tests'] ['tmp_name'] ['0'], $newfl);
-	    header('Location:/PHP-HTTP/list.php');
+	    header('Location:list.php');
 	    exit;
         }	
     }	
