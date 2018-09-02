@@ -69,7 +69,7 @@ if (!empty($_GET)) {
 			}
 	};
 	
-	$text = $name . ',' . 'You are' . ' ' . $count . 'mark';
+	$text = $name . ',' . 'You are' . ' ' . $count . ' ' . 'mark';
 
 	$image=imagecreatetruecolor(300, 150);
 	$textfront=imagecolorallocate($image, 100, 100, 100);
@@ -89,7 +89,7 @@ if (!empty($_GET)) {
 		exit;
 	}
 	imagettftext($image, 16, 0, 10, 10, $textfront, $fontfile, $text);
-	header('Content-Type: image/jpeg');
+	//header('Content-Type: image/jpeg');
 	imagejpeg($image);
 	
 	}	
